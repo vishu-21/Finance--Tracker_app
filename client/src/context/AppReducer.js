@@ -23,6 +23,14 @@ export default (state, action) => {
         ...state,
         error: action.payload,
       };
+      case "UPDATE_TRANSACTION":
+      return {
+        ...state,
+          transactions: state.transactions.filter(
+          (transaction) => transaction._id !== action.payload
+        ),
+
+      }
     default:
       return state;
   }

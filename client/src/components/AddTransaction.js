@@ -11,20 +11,25 @@ export const AddTransaction = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if(typeval=="Expense"){
+    if(typeval==="Expense"){
       amount = amount * -1;
     };
-
+    if(typeval===undefined){
+      amount = "NULL";
+    }
+    if(text ==="" || amount ==="" || typeval===undefined){
+      alert('please fill all the data')
+    }
     const newTransaction = {
       text,
-      amount: +amount,
-                
+      amount: +amount,               
     };
     console.log(typeval);
     addTransaction(newTransaction);
+    setTypeval('');
     setText('');
     setAmount('');
-    setTypeval();
+    
   };
 
   return (
@@ -33,20 +38,21 @@ export const AddTransaction = () => {
         <h4>Add new transaction</h4>
         <form onSubmit={onSubmit}>
           <div className="form-control">
-            <label htmlFor="text">Income / Expense</label>
+            <label htmlFor="text" className="method__type" >Category</label>
             <input
               type="text"
               value={text}
               onChange={(e) => setText(e.target.value)}
-              placeholder="Enter text..."
+              placeholder="Enter text..." required
             />
           </div>
           <div>
+            <div className="method__type">Type</div>
             {
-              types.map((val)=>{
+              types.map((val,ind)=>{
                 return <>
-                <input type="radio" value={val} id="{val}" name="method" onChange={(e)=>setTypeval(e.target.value)}/> 
-                <label htmlFor="{val}">{val}</label>
+                <input type="radio"  value={val} id="{val}" name="method" onChange={(e)=>setTypeval(e.target.value)}/> 
+                <label htmlFor="{val}"key={ind} >{val}</label>
                 </>
               })
             }
@@ -56,15 +62,13 @@ export const AddTransaction = () => {
           </div>
           
           <div className="form-control">
-            <label htmlFor="amount">
-              Amount <br />
-              
+            <label htmlFor="amount" className="method__type"> Amount           
             </label>
             <input
               type="number"
               value={amount}
               onChange={(e) => setAmount(e.target.value)}
-              placeholder="Enter amount('-ve' for expense)"
+              placeholder="Enter amount"
             />
           </div>
           <button className="btn">Add transaction</button>

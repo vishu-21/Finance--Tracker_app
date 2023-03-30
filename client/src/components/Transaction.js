@@ -4,6 +4,7 @@ import { numberWithCommas } from "../utils/format";
 
 export const Transaction = ({ transaction }) => {
   const { deleteTransaction } = useContext(GlobalContext);
+  
 
   const sign = transaction.amount < 0 ? "-" : "+";
 
@@ -20,12 +21,7 @@ export const Transaction = ({ transaction }) => {
         >
           <i class="bi bi-trash3"></i>
         </button>
-        <button
-          onClick={() => deleteTransaction(transaction._id)}
-          className="edit-btn"
-        >
-          <i class="bi bi-pencil-square"></i>
-        </button>
+        
       </li>
     </div>
   );

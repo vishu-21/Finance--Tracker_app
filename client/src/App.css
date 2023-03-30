@@ -28,7 +28,7 @@ h2{
   background-color: #fff;
 }
 .container{ 
-  width: 200vh;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -42,7 +42,7 @@ h2{
 
 }
 .right{
-  margin-left: 10vh;
+  margin-left: 30px;
   border-radius: 10px;
   width: 40%;
   padding: 30px;
@@ -70,7 +70,16 @@ h4 {
   border-radius: 30px;
   padding: 8px;
 }
-
+.method__type{
+  color: #111118;
+  text-transform:uppercase;
+  font-size: 16px;
+  border: 2px;
+  max-width: fit-content;
+  margin-top: 10px;
+  font-family:sans-serif;
+ 
+}
 
 .inc-exp-container {
   background-color: #fff;
@@ -90,7 +99,7 @@ h4 {
 }
 
 .inc-exp-container > div:first-of-type {
-  border-right: 1px solid #dedede;
+  border-right: 1px solid #c4c0c0;
 }
 
 .money {
@@ -211,3 +220,13 @@ input[type='number'] {
   opacity: 1;
 }
 
+@media only screen and (max-width: 768px){
+  .container{
+    width:200vw;
+    display: flex;
+    flex-direction:column; 
+  }
+  .right{
+    margin-top: 40px;
+  }
+}

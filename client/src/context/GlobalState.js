@@ -49,8 +49,10 @@ export const GlobalProvider = ({ children }) => {
       });
     }
   }
+ 
 
-
+ 
+ 
 
 
   async function addTransaction(transaction) {
