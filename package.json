@@ -5,11 +5,11 @@
   "main": "server.js",
   "scripts": {
     
-    "start": "nodemon server.js",
-    "dev": "nodemon server.js/server.js",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm start\" \"npm run client\"",
     "build": "npm i"
-
-   
     
   },
   "keywords": [],
