@@ -19,7 +19,7 @@ if(process.env.NODE_ENV === 'development') {
     server.use(morgan('dev'));
 }
 
-server.use('/api/v1/transactions',transactions)
+server.use('/api/v1/transactions',transactions);
 
 
 //static file
