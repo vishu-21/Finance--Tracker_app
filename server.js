@@ -1,4 +1,4 @@
-
+const path = require("path");
 const express = require("express");
 const morgan = require("morgan");
 const dotenv = require("dotenv");
@@ -22,7 +22,11 @@ if (process.env.NODE_ENV === "development") {
 server.use("/api/v1/transactions", transactions);
 
 //static file
+if (process.env.NODE_ENV === 'production') {
+    server.use(express.static('client/build'));
 
+    server.get('*',(req,res)=> res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html')));
+}
 
 const PORT = process.env.PORT || 8080;
 
